@@ -17,7 +17,8 @@ public:
         {
             if (player)
             {
-                uint32_t aura_savage_roar = 52610; // Savage Roar
+                // from wowhead
+                uint32_t aura_savage_roar = 52610;
                 uint32_t aura_cat_form = 768;
                 uint32_t aura_bear_form = 5487;
                 uint32_t aura_dire_bear_form = 9634;
@@ -26,7 +27,7 @@ public:
                 {
                     if (!player->HasAura(aura_savage_roar))
                     {
-                        int buffDuration = 60 * 60 * 6;
+                        int buffDurationSeconds = 60 * 60;
                         uint32_t buffDurationMillis = buffDurationSeconds * 1000;
 
                         player->AddAura(aura_savage_roar, player);
