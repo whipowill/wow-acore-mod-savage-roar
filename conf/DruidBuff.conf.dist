@@ -1,13 +1,4 @@
 [worldserver]
 
-########################################
-# My module configuration
-########################################
-#
-#    MyModule.Enable
-#        Description: Enable my module and print "Hello World" message at server start
-#        Default:     0 - Disabled
-#                     1 - Enabled
-#
-
-DruidBuff.Enable = 1
+DruidBuff.Enable = 1 # 1 or 0
+DruidBuff.DamageDone = 30 # percentage change positive or negative

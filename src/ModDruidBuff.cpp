@@ -19,8 +19,6 @@ public:
         {
             if (player)
             {
-                Unit* unit = player->ToUnit();
-
                 // custom spell ids (taken from Honey55's ZoneBuff codebase)
                 // https://github.com/55Honey/Acore_ZoneDebuff/blob/master/zoneDebuff.lua
                 uint32_t HpAuraSpell = 89501;
@@ -30,10 +28,6 @@ public:
                 uint32_t AbsorbSpell = 89505;
                 uint32_t HealingDoneSpell = 89506;
                 uint32_t PhysicalDamageTakenSpell = 89507;
-
-                // what are the custom values
-                uint32_t dmg_taken = 0; // -30 would decrease, 0 would nochange, 30 would increase
-                uint32_t dmg_done = 30; // -30 would decrease, 0 would nochange, 30 would increase
 
                 if (player->getClass() == CLASS_DRUID)
                 {
@@ -51,8 +45,13 @@ public:
                             //player->AddAura(aura_savage_roar, player);
                             //player->GetAura(aura_savage_roar, player->GetGUID())->SetDuration(buffDurationMillis);
 
+                            // what are the custom values
+                            uint32_t dmg_taken = sConfigMgr->GetOption<int>("DruidBuff.DamageTaken", 0); // -30 would decrease, 0 would nochange, 30 would increase
+                            uint32_t dmg_done = sConfigMgr->GetOption<int>("DruidBuff.DamageDone", 30); // -30 would decrease, 0 would nochange, 30 would increase
 
-                            unit->CastCustomSpell(unit, DamageDoneTakenSpell, dmg_taken, dmg_done, NULL, false);
+                            //Unit* unit = player->ToUnit();
+                            player->CastCustomSpell(player, DamageDoneTakenSpell, dmg_taken, dmg_done, NULL, false, NULL, NULL, player->GetGUID());
+                            // https://github.com/azerothcore/azerothcore-wotlk/blob/cef0d6f6527c0fe2abd6b45087f9f5c80c93331d/src/server/game/Entities/Unit/Unit.cpp#L1226
                         }
                     }
                     else
