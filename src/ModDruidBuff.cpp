@@ -2,7 +2,7 @@
 #include "ScriptMgr.h"
 #include "Player.h"
 #include "Unit.h"
-#include "uint32_t h"
+#include "Config.h"
 
 class DruidBuff : public PlayerScript
 {
