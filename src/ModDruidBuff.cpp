@@ -9,7 +9,7 @@ class DruidBuff : public PlayerScript
 public:
     DruidBuff() : PlayerScript("DruidBuff") {}
 
-    void OnUpdate(Player* player) override
+    void OnUpdate(Player* player, uint32 p_time)
     {
         int is_enabled = sConfigMgr->GetOption<int>("DruidBuff.Enable", 0);
 
