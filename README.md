@@ -60,6 +60,18 @@ This module uses [Honey55's ZoneDebuff](https://github.com/55Honey/Acore_ZoneDeb
 
 Unfortunately, there is no UI icon or combat log to tell you the mod is installed and working.  The way I tested this was I set the config file to take no damage, or to deal no damage, and looked to see what happened in combat.  It all worked perfectly.
 
+Also, if you feel like something is wrong, it could be the custom auras didn't actually get imported into the ``acore_world`` database.  You can check if they did here:
+
+```
+SELECT * FROM spell_dbc WHERE ID=89501
+```
+
+If this is a problem (due to confusion and changes to how modules are supposed to automatically import MySQL files), you can patch the database manaully like so:
+
+```
+$ mysql -uroot -proot acore_world < /path/to/modules/wow-acore-mod-druid-buff/data/sql/db-world/druidbuff_01_addauras.sql
+```
+
 ## Credits
 
 - ChatGPT
