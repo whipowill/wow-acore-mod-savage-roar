@@ -30,7 +30,17 @@ player->CastSpell(player, spellID, true); // flag true to pass requirements
 // or just use Honey55's custom auras
 player->CastCustomSpell(player, DamageDoneTakenSpell, &param1, &param2, &param3, true, NULL, NULL, player->GetGUID());
 
-// When you use CastCustomSpell() you can pass up to 3 params.  These are the params to pass for each of Honey55's auras:
+// When you use CastCustomSpell() you can pass up to 3 params.
+// These are the params to pass for each of Honey55's auras:
+// https://github.com/55Honey/Acore_ZoneDebuff/blob/master/zoneDebuff.lua
+//
+// uint32_t HpAuraSpell = 89501;
+// uint32_t DamageDoneTakenSpell = 89502;
+// uint32_t BaseStatAPSpell = 89503;
+// uint32_t RageFromDamageSpell = 89504;
+// uint32_t AbsorbSpell = 89505;
+// uint32_t HealingDoneSpell = 89506;
+// uint32_t PhysicalDamageTakenSpell = 89507;
 //
 // BaseStatAPSpell: param1=BaseStatModifier, param2=MeleeAPModifier, param3=RangedAPModifier
 // DamageDoneTakenSpell: param1=DamageTaken, param2=DamageDoneModifier
