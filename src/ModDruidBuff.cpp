@@ -31,7 +31,7 @@ public:
                         uint32_t buffDurationMillis = buffDurationSeconds * 1000;
 
                         player->AddAura(aura_savage_roar, player);
-                        player->GetAura(aura_savage_roar, player)->SetDuration(buffDurationMillis);
+                        player->GetAura(aura_savage_roar, player->GetGUID())->SetDuration(buffDurationMillis);
                     }
                 }
                 else
