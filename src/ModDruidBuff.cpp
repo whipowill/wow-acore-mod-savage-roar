@@ -9,7 +9,7 @@ class DruidBuff : public PlayerScript
 public:
     DruidBuff() : PlayerScript("DruidBuff") {}
 
-    void OnUpdate(Player* player)
+    void OnUpdate(Player* player, uint32 diff)
     {
         int is_enabled = sConfigMgr->GetOption<int>("DruidBuff.Enable", 0);
 
@@ -18,7 +18,7 @@ public:
             uint32_t spellId = 52610; // Savage Roar
 
             // if in animal form
-            if (player && player->IsDruid() && (player->HasAura(AURA_CAT_FORM) || player->HasAura(AURA_BEAR_FORM) || player->HasAura(AURA_DIRE_BEAR_FORM)))
+            if (player && player->GetClass() == CLASS_DRUID && (player->HasAura(AURA_CAT_FORM) || player->HasAura(AURA_BEAR_FORM) || player->HasAura(AURA_DIRE_BEAR_FORM)))
             {
                 if (!player->HasAura(spellId))
                 {
