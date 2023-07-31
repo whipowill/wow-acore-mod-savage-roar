@@ -23,19 +23,19 @@ public:
             // if in animal form
             if (player && player->getClass() == CLASS_DRUID && (player->HasAura(aura_cat_form) || player->HasAura(aura_bear_form) || player->HasAura(aura_dire_bear_form)))
             {
-                if (!player->HasAura(spellId))
+                if (!player->HasAura(aura_savage_roar))
                 {
                     int buffDuration = 60 * 60 * 6; // 5 hours (adjust as needed)
 
-                    player->AddAura(spellId, player); // Apply the buff to the player
-                    player->SetAuraDuration(spellId, buffDuration); // Set the duration of the buff
+                    player->AddAura(aura_savage_roar, player); // Apply the buff to the player
+                    player->SetAuraDuration(aura_savage_roar, buffDuration); // Set the duration of the buff
                 }
             }
             else
             {
-                if (player->HasAura(spellId))
+                if (player->HasAura(aura_savage_roar))
                 {
-                    player->RemoveAura(spellId);
+                    player->RemoveAura(aura_savage_roar);
                 }
             }
         }
