@@ -15,10 +15,13 @@ public:
 
         if (is_enabled)
         {
-            uint32_t spellId = 52610; // Savage Roar
+            uint32_t aura_savage_roar = 52610; // Savage Roar
+            uint32_t aura_cat_form = 768;
+            uint32_t aura_bear_form = 5487;
+            uint32_t aura_dire_bear_form = 9634;
 
             // if in animal form
-            if (player && player->getClass() == CLASS_DRUID && (player->HasAura(AURA_CAT_FORM) || player->HasAura(AURA_BEAR_FORM) || player->HasAura(AURA_DIRE_BEAR_FORM)))
+            if (player && player->getClass() == CLASS_DRUID && (player->HasAura(aura_cat_form) || player->HasAura(aura_bear_form) || player->HasAura(aura_dire_bear_form)))
             {
                 if (!player->HasAura(spellId))
                 {
