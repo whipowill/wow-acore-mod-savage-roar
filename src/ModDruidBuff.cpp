@@ -20,7 +20,7 @@ public:
                 if (player->getClass() == CLASS_DRUID)
                 {
                     // from wowhead
-                    uint32_t aura_savage_roar = 62071; //52610, 62071;
+                    uint32_t aura_savage_roar = 52610; //52610, 62071;
                     uint32_t aura_cat_form = 768;
                     uint32_t aura_bear_form = 5487;
                     uint32_t aura_dire_bear_form = 9634;
@@ -35,7 +35,7 @@ public:
                             //player->AddAura(aura_savage_roar, player);
                             // ^^ this works for normal auras that don't have requirements
 
-                            int buffDurationSeconds = 60 * 60;
+                            uint32_t buffDurationSeconds = 60 * 60;
                             uint32_t buffDurationMillis = buffDurationSeconds * 1000;
 
                             player->CastSpell(player, aura_savage_roar, true); // flag true to pass requirements
