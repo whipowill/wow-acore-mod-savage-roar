@@ -1,4 +1,5 @@
 #include "ModDruidBuff.h"
+#include "ScriptMgr.h"
 #include "Player.h"
 #include "Unit.h"
 #include "Config.h"
