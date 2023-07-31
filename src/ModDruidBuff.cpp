@@ -2,7 +2,7 @@
 #include "Unit.h"
 #include "Config.h"
 
-class DruidBuff : public PlayerScript
+class DruidBuff : public Module
 {
 public:
     DruidBuff() : Module("DruidBuff") {}

@@ -1,1 +1,1 @@
-void AddPvpTitlesScripts();
+void AddDruidBuffScripts();
