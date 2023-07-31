@@ -15,27 +15,29 @@ public:
 
         if (is_enabled)
         {
-            uint32_t aura_savage_roar = 52610; // Savage Roar
-            uint32_t aura_cat_form = 768;
-            uint32_t aura_bear_form = 5487;
-            uint32_t aura_dire_bear_form = 9634;
-
-            // if in animal form
-            if (player && player->getClass() == CLASS_DRUID && (player->HasAura(aura_cat_form) || player->HasAura(aura_bear_form) || player->HasAura(aura_dire_bear_form)))
+            if (player)
             {
-                if (!player->HasAura(aura_savage_roar))
-                {
-                    int buffDuration = 60 * 60 * 6; // 5 hours (adjust as needed)
+                uint32_t aura_savage_roar = 52610; // Savage Roar
+                uint32_t aura_cat_form = 768;
+                uint32_t aura_bear_form = 5487;
+                uint32_t aura_dire_bear_form = 9634;
 
-                    player->AddAura(aura_savage_roar, player); // Apply the buff to the player
-                    player->SetAuraDuration(aura_savage_roar, buffDuration); // Set the duration of the buff
+                if (player->getClass() == CLASS_DRUID && (player->HasAura(aura_cat_form) || player->HasAura(aura_bear_form) || player->HasAura(aura_dire_bear_form)))
+                {
+                    if (!player->HasAura(aura_savage_roar))
+                    {
+                        int buffDuration = 60 * 60 * 6; // 5 hours (adjust as needed)
+
+                        player->AddAura(aura_savage_roar, player); // Apply the buff to the player
+                        player->SetAuraDuration(aura_savage_roar, buffDuration); // Set the duration of the buff
+                    }
                 }
-            }
-            else
-            {
-                if (player->HasAura(aura_savage_roar))
+                else
                 {
-                    player->RemoveAura(aura_savage_roar);
+                    if (player->HasAura(aura_savage_roar))
+                    {
+                        player->RemoveAura(aura_savage_roar);
+                    }
                 }
             }
         }
