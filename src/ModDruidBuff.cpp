@@ -65,27 +65,11 @@ void AddDruidBuffScripts()
 }
 
 /*
-Examples of how to pass params to each of the various aura types.
-
-if not player:HasAura(BaseStatAPSpell) then
-    player:CastCustomSpell(player, BaseStatAPSpell, false, ConfigMap_baseStatModifier[mapId],ConfigMap_meleeAPModifier[mapId],ConfigMap_rangedAPModifier[mapId])
-end
-if not player:HasAura(DamageDoneTakenSpell) then
-    player:CastCustomSpell(player, DamageDoneTakenSpell, false, ConfigMap_DamageTaken[mapId],ConfigMap_DamageDoneModifier[mapId])
-end
-if not player:HasAura(HpAuraSpell) then
-    player:CastCustomSpell(player, HpAuraSpell, false, ConfigMap_hpModifier[mapId])
-end
-if not player:HasAura(RageFromDamageSpell) then
-    player:CastCustomSpell(player, RageFromDamageSpell, false, ConfigMap_RageFromDamageModifier[mapId])
-end
-if not player:HasAura(AbsorbSpell) then
-    player:CastCustomSpell(player, AbsorbSpell, false, ConfigMap_AbsorbModifier[mapId])
-end
-if not player:HasAura(HealingDoneSpell) then
-    player:CastCustomSpell(player, HealingDoneSpell, false, ConfigMap_HealingDoneModifier[mapId])
-end
-if not player:HasAura(PhysicalDamageTakenSpell) then
-    player:CastCustomSpell(player, PhysicalDamageTakenSpell, false, ConfigMap_PhysicalDamageTakenModifier[mapId])
-end
+BaseStatAPSpell: param1=ConfigMap_baseStatModifier, param2=ConfigMap_meleeAPModifier, param3=ConfigMap_rangedAPModifier
+DamageDoneTakenSpell: param1=ConfigMap_DamageTaken, param2=ConfigMap_DamageDoneModifier
+HpAuraSpell: param1=ConfigMap_hpModifier
+RageFromDamageSpell: param1=ConfigMap_RageFromDamageModifier
+AbsorbSpell: param1=ConfigMap_AbsorbModifier
+HealingDoneSpell: param1=ConfigMap_HealingDoneModifier
+PhysicalDamageTakenSpell: param1=ConfigMap_PhysicalDamageTakenModifier
 */
