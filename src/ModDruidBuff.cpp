@@ -26,10 +26,11 @@ public:
                 {
                     if (!player->HasAura(aura_savage_roar))
                     {
-                        int buffDuration = 60 * 60 * 6; // 5 hours (adjust as needed)
+                        int buffDuration = 60 * 60 * 6;
+                        uint32_t buffDurationMillis = buffDurationSeconds * 1000;
 
-                        player->AddAura(aura_savage_roar, player); // Apply the buff to the player
-                        player->GetAura(aura_savage_roar, player)->SetDuration(buffDuration);
+                        player->AddAura(aura_savage_roar, player);
+                        player->GetAura(aura_savage_roar, player)->SetDuration(buffDurationMillis);
                     }
                 }
                 else
