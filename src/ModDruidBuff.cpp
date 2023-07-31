@@ -19,7 +19,7 @@ public:
         {
             if (player)
             {
-                Unit* unit = static_cast<Unit*>(player);
+                Unit* unit = player->ToUnit();
 
                 // custom spell ids (taken from Honey55's ZoneBuff codebase)
                 // https://github.com/55Honey/Acore_ZoneDebuff/blob/master/zoneDebuff.lua
@@ -52,7 +52,7 @@ public:
                             //player->GetAura(aura_savage_roar, player->GetGUID())->SetDuration(buffDurationMillis);
 
 
-                            player->CastCustomSpell(player, DamageDoneTakenSpell, false, dmg_taken,dmg_done);
+                            unit->CastCustomSpell(unit, DamageDoneTakenSpell, dmg_taken, dmg_done, NULL, false);
                         }
                     }
                     else
