@@ -50,7 +50,7 @@ public:
                             int32_t dmg_done = sConfigMgr->GetOption<int>("DruidBuff.DamageDone", 30); // -30 would decrease, 0 would nochange, 30 would increase
 
                             //Unit* unit = player->ToUnit();
-                            player->CastCustomSpell(player, DamageDoneTakenSpell, dmg_taken, dmg_done, NULL, false, NULL, NULL, player->GetGUID());
+                            player->CastCustomSpell(player, DamageDoneTakenSpell, &dmg_taken, &dmg_done, NULL, false, NULL, NULL, player->GetGUID());
                             // https://github.com/azerothcore/azerothcore-wotlk/blob/cef0d6f6527c0fe2abd6b45087f9f5c80c93331d/src/server/game/Entities/Unit/Unit.cpp#L1226
                         }
                     }
