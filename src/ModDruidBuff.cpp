@@ -18,7 +18,7 @@ public:
             uint32_t spellId = 52610; // Savage Roar
 
             // if in animal form
-            if (player && player->GetClass() == CLASS_DRUID && (player->HasAura(AURA_CAT_FORM) || player->HasAura(AURA_BEAR_FORM) || player->HasAura(AURA_DIRE_BEAR_FORM)))
+            if (player && player->getClass() == CLASS_DRUID && (player->HasAura(AURA_CAT_FORM) || player->HasAura(AURA_BEAR_FORM) || player->HasAura(AURA_DIRE_BEAR_FORM)))
             {
                 if (!player->HasAura(spellId))
                 {
