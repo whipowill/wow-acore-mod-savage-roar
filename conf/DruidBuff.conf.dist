@@ -1,3 +1,5 @@
 [worldserver]
 
 DruidBuff.Enable = 1
+DruidBuff.DamageTaken = 0
+DruidBuff.DamageDone = 30
