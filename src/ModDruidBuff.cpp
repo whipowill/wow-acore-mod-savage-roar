@@ -29,7 +29,7 @@ public:
                         int buffDuration = 60 * 60 * 6; // 5 hours (adjust as needed)
 
                         player->AddAura(aura_savage_roar, player); // Apply the buff to the player
-                        player->SetAuraDuration(aura_savage_roar, buffDuration); // Set the duration of the buff
+                        player->GetAura(aura_savage_roar, player)->SetDuration(buffDuration);
                     }
                 }
                 else
