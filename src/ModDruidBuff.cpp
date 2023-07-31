@@ -2,6 +2,8 @@
 #include "ScriptMgr.h"
 #include "Player.h"
 #include "Unit.h"
+#include "SpellAuras.h"
+#include "SpellAuraEffects.h"
 #include "Config.h"
 
 class DruidBuff : public PlayerScript
@@ -50,7 +52,7 @@ public:
                             //player->GetAura(aura_savage_roar, player->GetGUID())->SetDuration(buffDurationMillis);
 
 
-                            unit->CastCustomSpell(player, DamageDoneTakenSpell, false, dmg_taken,dmg_done);
+                            player->CastCustomSpell(player, DamageDoneTakenSpell, false, dmg_taken,dmg_done);
                         }
                     }
                     else
