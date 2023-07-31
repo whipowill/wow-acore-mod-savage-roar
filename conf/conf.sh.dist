@@ -6,11 +6,11 @@
 ## BASE SQL
 
 DB_WORLD_CUSTOM_PATHS+=(
-	"$MOD_DRUIDBUFF_ROOT/data/sql/world/base/"
+	"$MOD_SKELETON_ROOT/data/sql/world/base/"
 )
 
 ## UPDATES
 
 DB_WORLD_UPDATES_PATHS+=(
-	"$MOD_DRUIDBUFF_ROOT/data/sql/world/updates/"
+	"$MOD_SKELETON_ROOT/data/sql/world/updates/"
 )
