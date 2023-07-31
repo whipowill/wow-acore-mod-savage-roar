@@ -46,8 +46,8 @@ public:
                             //player->GetAura(aura_savage_roar, player->GetGUID())->SetDuration(buffDurationMillis);
 
                             // what are the custom values
-                            uint32_t dmg_taken = sConfigMgr->GetOption<int>("DruidBuff.DamageTaken", 0); // -30 would decrease, 0 would nochange, 30 would increase
-                            uint32_t dmg_done = sConfigMgr->GetOption<int>("DruidBuff.DamageDone", 30); // -30 would decrease, 0 would nochange, 30 would increase
+                            int32_t dmg_taken = sConfigMgr->GetOption<int>("DruidBuff.DamageTaken", 0); // -30 would decrease, 0 would nochange, 30 would increase
+                            int32_t dmg_done = sConfigMgr->GetOption<int>("DruidBuff.DamageDone", 30); // -30 would decrease, 0 would nochange, 30 would increase
 
                             //Unit* unit = player->ToUnit();
                             player->CastCustomSpell(player, DamageDoneTakenSpell, dmg_taken, dmg_done, NULL, false, NULL, NULL, player->GetGUID());
