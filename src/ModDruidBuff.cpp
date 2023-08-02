@@ -11,7 +11,7 @@ public:
 
     void OnUpdate(Player* player, uint32 p_time)
     {
-        int is_enabled = sConfigMgr->GetOption<int>("DruidBuff.Enable", 0);
+        uint32_t is_enabled = sConfigMgr->GetOption<int>("DruidBuff.Enable", 0);
 
         if (is_enabled)
         {
