@@ -12,7 +12,7 @@ This is my first attempt at creating a module.
 
 ## Methodology
 
-This module uses [55Honey's ZoneDebuff](https://github.com/55Honey/Acore_ZoneDebuff/blob/master/zoneDebuff.lua) technique to apply the buff to Feral Druids.  His custom auras, included in this module's MySQL file, can enable a variety of buffs/debuffs:
+This module uses [55Honey's ZoneDebuff](https://github.com/55Honey/Acore_ZoneDebuff/blob/master/zoneDebuff.lua) technique to apply the buff to Feral Druids.  His custom auras, included in this module's MySQL file, can enable a variety of buffs/debuffs.
 
 ## Testing
 
@@ -20,7 +20,7 @@ Unfortunately, there is no UI icon or combat log to tell you the mod is installe
 
 It all worked perfectly.
 
-Some of these buffs, such as the ``DamageDoneTakenAura`` which I use in this mod, are reflected in your character stats screen.  So in the case of this mod, you can see in Cat or Bear form a 1.30 multiplier to your melee dmg.
+I later discovered that the ``DamageDoneTakenAura`` is reflected in your character stats screen, so you can see in Cat or Bear form a 1.30 multiplier to your melee dmg.
 
 ## Credits
 
