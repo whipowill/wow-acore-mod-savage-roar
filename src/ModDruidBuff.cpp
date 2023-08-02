@@ -1,8 +1,8 @@
 #include "ModDruidBuff.h"
 #include "ScriptMgr.h"
-#include "Player.h"
-#include "Unit.h"
 #include "Config.h"
+#include "Unit.h"
+#include "Player.h"
 
 class DruidBuff : public PlayerScript
 {
