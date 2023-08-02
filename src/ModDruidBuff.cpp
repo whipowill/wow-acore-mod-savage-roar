@@ -2,8 +2,6 @@
 #include "ScriptMgr.h"
 #include "Player.h"
 #include "Unit.h"
-#include "SpellAuras.h"
-#include "SpellAuraEffects.h"
 #include "Config.h"
 
 class DruidBuff : public PlayerScript
