@@ -17,7 +17,7 @@ public:
         {
             if (player)
             {
-                uint32_t DamageDoneTakenSpell = 89502;
+                uint32_t DamageDoneTakenSpell = 89508;
 
                 if (player->getClass() == CLASS_DRUID)
                 {
