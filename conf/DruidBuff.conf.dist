@@ -3,8 +3,11 @@
 # 0=off, 1=on
 DruidBuff.Enable = 1
 
-# -100=no dmg, 0=no change, 100=double dmg
+# integer as a percentage (30 or -30)
 DruidBuff.DamageTaken = 0
 
-# -100=no dmg, 0=no change, 100=double dmg
+# integer as a percentage (30 or -30)
 DruidBuff.DamageDone = 30
+
+# integer as a percentage (30 or -30)
+DruidBuff.ArmorIncrease = 30
