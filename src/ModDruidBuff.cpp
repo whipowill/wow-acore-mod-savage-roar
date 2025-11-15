@@ -18,7 +18,7 @@ class DruidBuff : public PlayerScript
 public:
     DruidBuff() : PlayerScript("DruidBuff") {}
 
-    void OnUpdate(Player* player, uint32 /*p_time*/)
+    void OnPlayerUpdate(Player* player, uint32 /*p_time*/)
     {
         if (sConfigMgr->GetOption<int>("DruidBuff.Enable", 0))
         {
