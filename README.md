@@ -14,6 +14,8 @@ This is my first attempt at creating a module.
 
 This module uses [55Honey's ZoneDebuff](https://github.com/55Honey/Acore_ZoneDebuff/blob/master/zoneDebuff.lua) technique to apply the buff to Feral Druids.  His custom auras, included in this module's MySQL file, can enable a variety of buffs/debuffs.
 
+You can view the effects of this module in your character screen.
+
 ## Credits
 
 - ChatGPT

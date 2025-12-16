@@ -11,6 +11,7 @@ public:
 
     uint32_t is_altered = 0;
     uint32_t last_form = 0;
+    uint32_t last_time = 0;
 };
 
 class DruidBuff : public PlayerScript
@@ -24,16 +25,37 @@ public:
         {
             if (player)
             {
-                uint32_t DamageDoneTakenSpell = 89508;
-
+                // if this is a druid...
                 if (player->getClass() == CLASS_DRUID)
                 {
+                    // load custom info
+                    DruidBuffCreatureInfo *creatureInfo = player->CustomData.GetDefault<DruidBuffCreatureInfo>("DruidBuffCreatureInfo");
+
+                    // get timestamps
+                    uint32_t last = creatureInfo->last_time;
+                    uint32_t time = GetEpochTime().count();
+
+                    // if this creature had no last timestamp, set and bail...
+                    if (!last)
+                    {
+                        creatureInfo->last_time = time;
+                        return;
+                    }
+
+                    // if no seconds have passed, then bail...
+                    if (time <= last) return;
+
+                    // So at this point, this script should only run
+                    // once per second and not more than that.
+
                     uint32_t aura_cat_form = 768;
                     uint32_t aura_bear_form = 5487;
                     uint32_t aura_dire_bear_form = 9634;
                     uint32_t aura_travel_form = 783;
                     uint32_t aura_aquatic_form = 1066;
                     uint32_t aura_tree_form = 33891;
+
+                    uint32_t DamageDoneTakenSpell = 89508;
 
                     // if in cat or bear form...
                     if (player->HasAura(aura_cat_form) || player->HasAura(aura_bear_form) || player->HasAura(aura_dire_bear_form))
@@ -62,11 +84,6 @@ public:
                         }
                     }
 
-                    /////////////////////////////////////////////////
-
-                    // load info
-                    DruidBuffCreatureInfo *creatureInfo = player->CustomData.GetDefault<DruidBuffCreatureInfo>("DruidBuffCreatureInfo");
-
                     // if in any form (excluding flight forms)...
                     if (player->HasAura(aura_cat_form) || player->HasAura(aura_bear_form) || player->HasAura(aura_dire_bear_form) || player->HasAura(aura_travel_form) || player->HasAura(aura_aquatic_form) || player->HasAura(aura_tree_form))
                     {
@@ -74,25 +91,16 @@ public:
                         int32_t armor_increase = sConfigMgr->GetOption<int>("DruidBuff.ArmorIncrease", 0);
                         if (armor_increase != 0)
                         {
-                            // The reason I turned off this conditional is bc
-                            // shifting from travel -> travel would lose the armor buff.
-                            // I don't like the idea of this firing every frame
-                            // but I don't know how else to ensure perfect armor change.
+                            // reset player armor (so number is correct)
+                            player->UpdateArmor();
 
-                            // if not already altered (or new form)...
-                            //if (!creatureInfo->is_altered || player->GetShapeshiftForm() != creatureInfo->last_form)
-                            //{
-                                // reset player armor (so number is correct)
-                                player->UpdateArmor();
+                            // calculate what this armor should be
+                            float new_armor = static_cast<float>(player->GetArmor()) * (100 + armor_increase) / 100;
 
-                                // calculate what this armor should be
-                                float new_armor = static_cast<float>(player->GetArmor()) * (100 + armor_increase) / 100;
-
-                                // alter armor
-                                player->SetArmor(static_cast<uint32>(new_armor));
-                                creatureInfo->last_form = player->GetShapeshiftForm();
-                                creatureInfo->is_altered = 1;
-                            //}
+                            // alter armor
+                            player->SetArmor(static_cast<uint32>(new_armor));
+                            creatureInfo->last_form = player->GetShapeshiftForm();
+                            creatureInfo->is_altered = 1;
                         }
                     }
                     else
@@ -106,6 +114,9 @@ public:
                             creatureInfo->is_altered = 0;
                         }
                     }
+
+                    // save timestamp
+                    creatureInfo->last_time = time;
                 }
             }
         }
